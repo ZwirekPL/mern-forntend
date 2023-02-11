@@ -7,14 +7,14 @@ interface NavBarProps {
   loggedInUser?: User | null;
   onSignUpClicked: () => void;
   onLoginClicked: () => void;
-  onLogoutSuccesful: () => void;
+  onLogoutSuccessful: () => void;
 }
 
 const NavBar = ({
   loggedInUser,
   onSignUpClicked,
   onLoginClicked,
-  onLogoutSuccesful,
+  onLogoutSuccessful,
 }: NavBarProps) => {
   return (
     <Navbar bg="primary" variant="dark" expand="md" sticky="top">
@@ -26,7 +26,7 @@ const NavBar = ({
             {loggedInUser ? (
               <NavBarLoggedInView
                 user={loggedInUser}
-                onLogoutSuccsessful={onLogoutSuccesful}
+                onLogoutSuccessful={onLogoutSuccessful}
               />
             ) : (
               <NavBarLoggedOutView

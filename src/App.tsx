@@ -33,7 +33,7 @@ function App() {
         loggedInUser={loggedInUser}
         onLoginClicked={() => setShowLoginUpModal(true)}
         onSignUpClicked={() => setShowSignUpModal(true)}
-        onLogoutSuccesful={() => setLoggedInUser(null)}
+        onLogoutSuccessful={() => setLoggedInUser(null)}
       />
       <Container className={styles.NotesPage}>
         <>

@@ -4,17 +4,17 @@ import * as NotesApi from "../network/notes_api";
 
 interface NavBarLoggedInViewProps {
   user: User;
-  onLogoutSuccsessful: () => void;
+  onLogoutSuccessful: () => void;
 }
 
 const NavBarLoggedInView = ({
   user,
-  onLogoutSuccsessful,
+  onLogoutSuccessful,
 }: NavBarLoggedInViewProps) => {
   async function logout() {
     try {
       await NotesApi.logout();
-      onLogoutSuccsessful();
+      onLogoutSuccessful();
     } catch (error) {
       console.error(error);
       alert(error);

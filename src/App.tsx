@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import { Route, Routes } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 import LoginModel from "./components/LoginModel";
 import NavBar from "./components/NavBar";
 import SignUpModel from "./components/SignUpModel";
 import { User } from "./models/user";
-import styles from "./styles/NotesPage.module.css";
-
+import styles from "./styles/App.module.css";
 import * as NotesApi from "./network/notes_api";
-import NotesPageLoggedInView from "./components/NotesPageLoggedInView";
-import NotesPageLoggedOutView from "./components/NotesPageLoggedOutView";
+import NotesPage from "./pages/NotesPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import PrivacyPage from "./pages/PrivacyPage";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
@@ -28,21 +30,24 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <NavBar
-        loggedInUser={loggedInUser}
-        onLoginClicked={() => setShowLoginUpModal(true)}
-        onSignUpClicked={() => setShowSignUpModal(true)}
-        onLogoutSuccessful={() => setLoggedInUser(null)}
-      />
-      <Container className={styles.NotesPage}>
-        <>
-          {loggedInUser ? (
-            <NotesPageLoggedInView />
-          ) : (
-            <NotesPageLoggedOutView />
-          )}
-        </>
+    <BrowserRouter>
+      <div>
+        <NavBar
+          loggedInUser={loggedInUser}
+          onLoginClicked={() => setShowLoginUpModal(true)}
+          onSignUpClicked={() => setShowSignUpModal(true)}
+          onLogoutSuccessful={() => setLoggedInUser(null)}
+        />
+        <Container className={styles.pageContainer}>
+          <Routes>
+            <Route
+              path="/"
+              element={<NotesPage loggedInUser={loggedInUser} />}
+            />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/*" element={<NotFoundPage />} />
+          </Routes>
+        </Container>
         {showSignUpModal && (
           <SignUpModel
             onDismiss={() => setShowSignUpModal(false)}
@@ -61,8 +66,8 @@ function App() {
             }}
           />
         )}
-      </Container>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

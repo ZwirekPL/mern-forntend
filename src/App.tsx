@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-import LoginModel from "./components/LoginModel";
+import LoginModal from "./components/LoginModal";
 import NavBar from "./components/NavBar";
 import SignUpModel from "./components/SignUpModel";
 import { User } from "./models/user";
@@ -58,7 +58,7 @@ function App() {
           />
         )}
         {showLoginUpModal && (
-          <LoginModel
+          <LoginModal
             onDismiss={() => setShowLoginUpModal(false)}
             onLoginSuccessful={(user) => {
               setLoggedInUser(user);

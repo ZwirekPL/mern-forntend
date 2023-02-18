@@ -77,9 +77,12 @@ export async function logout() {
 }
 
 export async function fetchNotes(): Promise<Note[]> {
-  const response = await fetchData("/api/notes", {
-    method: "GET",
-  });
+  const response = await fetchData(
+    "https://try-notes-backend.onrender.com/api/notes",
+    {
+      method: "GET",
+    }
+  );
   return response.json();
 }
 

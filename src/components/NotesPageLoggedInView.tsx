@@ -74,7 +74,7 @@ const NotesPageLoggedInView = () => {
       )}
       {!notesLoading && !showNotesLoadingError && (
         <>
-          {notes.length > 0 ? notesGrid : <p>You don't have any notes yet.</p>}
+          {notes.length > 0 ? notesGrid : <p>You don't have any notes yet</p>}
         </>
       )}
       {showAddNoteDialog && (

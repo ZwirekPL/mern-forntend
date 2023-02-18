@@ -49,7 +49,7 @@ function App() {
           </Routes>
         </Container>
         {showSignUpModal && (
-          <SignUpModel
+          <SignUpModal
             onDismiss={() => setShowSignUpModal(false)}
             onSignUpSuccessful={(user) => {
               setLoggedInUser(user);
@@ -57,12 +57,12 @@ function App() {
             }}
           />
         )}
-        {showLoginUpModal && (
+        {showLoginModal && (
           <LoginModal
-            onDismiss={() => setShowLoginUpModal(false)}
+            onDismiss={() => setShowLoginModal(false)}
             onLoginSuccessful={(user) => {
               setLoggedInUser(user);
-              setShowLoginUpModal(false);
+              setShowLoginModal(false);
             }}
           />
         )}

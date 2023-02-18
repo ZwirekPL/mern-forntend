@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import LoginModal from "./components/LoginModal";
 import NavBar from "./components/NavBar";
-import SignUpModel from "./components/SignUpModel";
+import SignUpModal from "./components/SignUpModal";
 import { User } from "./models/user";
 import styles from "./styles/App.module.css";
 import * as NotesApi from "./network/notes_api";
@@ -57,12 +57,12 @@ function App() {
             }}
           />
         )}
-        {showLoginModal && (
+        {showLoginUpModal && (
           <LoginModal
-            onDismiss={() => setShowLoginModal(false)}
+            onDismiss={() => setShowLoginUpModal(false)}
             onLoginSuccessful={(user) => {
               setLoggedInUser(user);
-              setShowLoginModal(false);
+              setShowLoginUpModal(false);
             }}
           />
         )}
